@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -12,10 +10,13 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 100,
-      color: Colors.blue,
-      child: const Text('Home'),
+    return Scaffold(
+      body: Center(
+        child: Container(
+          color: Colors.blue,
+          child: const Text('Home'),
+        ),
+      ),
     );
   }
 }

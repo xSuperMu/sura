@@ -12,7 +12,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
+  cupertino_icons:
+  smooth_page_indicator: 
+  flutter_native_splash:
+  shared_preferences:  
+  expandable:
 
 dev_dependencies:
   flutter_test:
@@ -23,7 +27,10 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   
-
+  assets:
+    - assets/images/
+    - assets/icons/
+    
   fonts: 
    - family: Montserrat
      fonts:
