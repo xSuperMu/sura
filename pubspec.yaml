@@ -17,6 +17,7 @@ dependencies:
   flutter_native_splash:
   shared_preferences:  
   expandable:
+  google_maps_flutter:
 
 dev_dependencies:
   flutter_test:
@@ -29,7 +30,7 @@ flutter:
   
   assets:
     - assets/images/
-    - assets/icons/
+    
     
   fonts: 
    - family: Montserrat
