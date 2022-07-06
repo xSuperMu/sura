@@ -2,19 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import 'package:sura/widgets/custom_button.dart';
+
 import '../themes/constants.dart';
 import 'custom_textFormField.dart';
 
+class BottomSheetCoustom extends StatelessWidget {
+ 
 
 
-
-class BottomSheetCostimize extends StatelessWidget {
-  const BottomSheetCostimize({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
- 
       child: Stack(
         children: [
           ClipRRect(
@@ -47,7 +48,7 @@ class BottomSheetCostimize extends StatelessWidget {
                                   width: 50,
                                   child: Divider(
                                     thickness: 5,
-                                    color: Colors.amber,
+                                    color: darkBlue,
                                   ),
                                 ),
                               ]),
@@ -58,9 +59,17 @@ class BottomSheetCostimize extends StatelessWidget {
                             child: Padding(
                               padding: EdgeInsets.all(20),
                               child: Column(children: [
-
-                                TextFormFieldCustom( inputText: ' موقع البداية ',   icon: Icons.edit   ),
-                                SizedBox(  height: 20),
+                                TextFormFieldCustom(label: " موقع البداية", icon: Icons.edit),
+                               
+                                SizedBox(height: 30,),
+                                TextFormFieldCustom(label: "موقع النهاية", icon: Icons.edit),
+                             
+                                SizedBox(height: 60,),
+                                CustomButton(label: 'حسن المسار',
+                                hight: size.height * 0.05,
+                                width: size.width * 0.3,
+                                 onPressed: () {})
+                                
 
                               ]),
                             ),
@@ -73,4 +82,6 @@ class BottomSheetCostimize extends StatelessWidget {
       ),
     );
   }
+ 
+  
 }
