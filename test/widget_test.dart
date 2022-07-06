@@ -27,8 +27,4 @@
 //     expect(find.text('0'), findsNothing);
 //     expect(find.text('1'), findsOneWidget);
 //   });
-<<<<<<< HEAD
 // }
-=======
-// }
->>>>>>> dbe55e2d80bad078d5fa746644f305da35235805
