@@ -17,17 +17,8 @@ class _HomeState extends State<Home> {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        body: Container(
-       
-        child: BottomSheetCoustom()           
-             
-          ),
-          
-          
-          ),
+        body: Container(child: BottomSheetCoustom()),
+      ),
     );
-        
-      
-    
   }
 }
