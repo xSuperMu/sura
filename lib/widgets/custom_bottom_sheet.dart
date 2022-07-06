@@ -8,10 +8,6 @@ import '../themes/constants.dart';
 import 'custom_textFormField.dart';
 
 class BottomSheetCoustom extends StatelessWidget {
- 
-
-
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -24,9 +20,9 @@ class BottomSheetCoustom extends StatelessWidget {
               topRight: Radius.circular(40),
             ),
             child: DraggableScrollableSheet(
-                //initialChildSize: 0.5,
-
-                maxChildSize: 0.8,
+                initialChildSize: 0.08,
+                minChildSize: 0.08,
+                maxChildSize: 0.5,
                 // maxChildSize: 0.85,
                 builder: (BuildContext ctx, ScrollController ScrollController) {
                   return Container(
@@ -59,18 +55,21 @@ class BottomSheetCoustom extends StatelessWidget {
                             child: Padding(
                               padding: EdgeInsets.all(20),
                               child: Column(children: [
-                                TextFormFieldCustom(label: " موقع البداية", icon: Icons.edit),
-                               
-                                SizedBox(height: 30,),
-                                TextFormFieldCustom(label: "موقع النهاية", icon: Icons.edit),
-                             
-                                SizedBox(height: 60,),
-                                CustomButton(label: 'حسن المسار',
-                                hight: size.height * 0.05,
-                                width: size.width * 0.3,
-                                 onPressed: () {})
-                                
-
+                                TextFormFieldCustom(
+                                    label: " موقع البداية", icon: Icons.edit),
+                                SizedBox(
+                                  height: 30,
+                                ),
+                                TextFormFieldCustom(
+                                    label: "موقع النهاية", icon: Icons.edit),
+                                SizedBox(
+                                  height: 60,
+                                ),
+                                CustomButton(
+                                    label: 'حسن المسار',
+                                    hight: size.height * 0.05,
+                                    width: size.width * 0.35,
+                                    onPressed: () {})
                               ]),
                             ),
                           );
@@ -82,6 +81,4 @@ class BottomSheetCoustom extends StatelessWidget {
       ),
     );
   }
- 
-  
 }
