@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../themes/constants.dart';
 import '../../widgets/custom_button.dart';
@@ -82,8 +83,10 @@ class _OnboardingState extends State<Onboarding>
                         label: 'ابدأ',
                         hight: size.height * 0.05,
                         width: size.width * 0.3,
-                        onPressed: () {
+                        onPressed: () async {
                           if (isLastPage == true) {
+                            final prefs = await SharedPreferences.getInstance();
+                            prefs.setBool('showHome', true);
                             Navigator.of(context).pushReplacement(
                                 MaterialPageRoute(
                                     builder: (context) => const Home()));
@@ -94,8 +97,10 @@ class _OnboardingState extends State<Onboarding>
                 SizedBox(width: size.width * 0.3),
                 TextButton(
                     onPressed: () async {
-                      // final prefs = await SharedPreferences.getInstance();
-                      // prefs.setBool('showHome', true);
+                      final prefs = await SharedPreferences.getInstance();
+                      prefs.setBool('showHome', true);
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => const Home()));
                     },
                     child: CustomText(
                       data: 'تخطي',
