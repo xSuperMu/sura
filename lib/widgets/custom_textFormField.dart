@@ -4,10 +4,11 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:sura/themes/constants.dart';
 
 class TextFormFieldCustom extends StatelessWidget {
-  final String inputText;
+  final String label;
   final IconData icon;
+  //final VoidCallback onPressed;
 
-  const TextFormFieldCustom({required this.inputText, required this.icon});
+  const TextFormFieldCustom({required this.label, required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class TextFormFieldCustom extends StatelessWidget {
         child: Container(
           child: TextFormField(
             decoration: InputDecoration(
-              hintText: inputText,
+              hintText: label,
               filled: true,
               fillColor: grey,
               suffixIcon: IconButton(
