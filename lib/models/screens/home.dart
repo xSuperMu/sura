@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../widgets/custom_bottom_sheet.dart';
+import '../../widgets/custom_button.dart';
+import '../../widgets/custom_textFormField.dart';
+
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -10,13 +14,20 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Container(
-          color: Colors.blue,
-          child: const Text('Home'),
-        ),
-      ),
+    Size size = MediaQuery.of(context).size;
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+       
+        child: BottomSheetCoustom()           
+             
+          ),
+          
+          
+          ),
     );
+        
+      
+    
   }
 }
