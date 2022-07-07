@@ -11,74 +11,63 @@ class BottomSheetCoustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container(
-      child: Stack(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(40),
-              topRight: Radius.circular(40),
-            ),
-            child: DraggableScrollableSheet(
-                initialChildSize: 0.08,
-                minChildSize: 0.08,
-                maxChildSize: 0.5,
-                // maxChildSize: 0.85,
-                builder: (BuildContext ctx, ScrollController ScrollController) {
-                  return Container(
-                    decoration: BoxDecoration(
-                        color: white,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(40),
-                            topRight: Radius.circular(40))),
-                    child: ListView.builder(
-                        physics: ClampingScrollPhysics(),
-                        controller: ScrollController,
-                        itemCount: 2,
-                        itemBuilder: (BuildContext context, int index) {
-                          if (index == 0) {
-                            return Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Column(children: [
-                                SizedBox(
-                                  width: 50,
-                                  child: Divider(
-                                    thickness: 5,
-                                    color: darkBlue,
-                                  ),
-                                ),
-                              ]),
-                            );
-                          }
+    return DraggableScrollableSheet(
+       // initialChildSize: 0.08,
+        minChildSize: 0.5,
+       
+        maxChildSize: 0.85,
+        builder: (BuildContext ctx, ScrollController ScrollController) {
+          return Container(
+            decoration: BoxDecoration(
+                color: white,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(40),
+                    topRight: Radius.circular(40))),
+            child: ListView.builder(
+                physics: ClampingScrollPhysics(),
+                controller: ScrollController,
+                itemCount: 2,
+                itemBuilder: (BuildContext context, int index) {
+                  if (index == 0) {
+                    return Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Column(children: [
+                        SizedBox(
+                          width: 50,
+                          child: Divider(
+                            thickness: 5,
+                            color: darkBlue,
+                          ),
+                        ),
+                      ]),
+                    );
+                  }
 
-                          return Container(
-                            child: Padding(
-                              padding: EdgeInsets.all(20),
-                              child: Column(children: [
-                                TextFormFieldCustom(
-                                    label: " موقع البداية", icon: Icons.edit),
-                                SizedBox(
-                                  height: 30,
-                                ),
-                                TextFormFieldCustom(
-                                    label: "موقع النهاية", icon: Icons.edit),
-                                SizedBox(
-                                  height: 60,
-                                ),
-                                CustomButton(
-                                    label: 'حسن المسار',
-                                    hight: size.height * 0.05,
-                                    width: size.width * 0.35,
-                                    onPressed: () {})
-                              ]),
-                            ),
-                          );
-                        }),
+                  return Container(
+                    child: Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Column(children: [
+                        TextFormFieldCustom(
+                            label: " موقع البداية", icon: Icons.edit),
+                        SizedBox(
+                          height:size.height * 0.03,
+                        ),
+
+                        TextFormFieldCustom(
+                            label: "موقع النهاية", icon: Icons.edit),
+                        SizedBox(
+                          height: size.height * 0.09,
+                        ),
+                        CustomButton(
+                            label: 'حسن المسار',
+                            hight: size.height * 0.05,
+                            width: size.width * 0.35,
+                            onPressed: () {})
+                      ]),
+                    ),
                   );
                 }),
-          ),
-        ],
-      ),
-    );
+          );
+        });
   }
 }
