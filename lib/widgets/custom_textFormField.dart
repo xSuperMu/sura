@@ -15,25 +15,48 @@ class TextFormFieldCustom extends StatelessWidget {
     return Directionality(
         textDirection: TextDirection.rtl,
         child: Container(
-          child: TextFormField(
-            decoration: InputDecoration(
-              hintText: label,
-              filled: true,
-              fillColor: grey,
-              suffixIcon: IconButton(
-                  icon: Icon(icon),
-                  //do somthing
-                  onPressed: () {}),
-              contentPadding: EdgeInsets.all(10),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(90),
-                borderSide: const BorderSide(
-                  width: 0,
-                  style: BorderStyle.none,
-                ),
+          child: Row(
+            children: [
+              Expanded(
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    hintText: label,
+                    filled: true,
+                    fillColor:white,
+                     contentPadding: EdgeInsets.all(10),
+                    focusedBorder: OutlineInputBorder(
+                       borderRadius: BorderRadius.circular(15.0),
+                        borderSide: BorderSide(
+                          color: whiteBlue,
+                        ),     
+              
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                      borderSide: BorderSide(color: whiteBlue, width: 1.0)
+                    ),
+                    
+                     suffixIcon: IconButton(
+                        icon: Icon(icon),
+                        color: whiteBlue,
+                        //do somthing
+                        onPressed: () {}),
+                  
+              
+                    ),
+                    
+                  ),
+                
               ),
-            ),
+                Container( 
+                       
+                    child: IconButton(
+                     icon: Icon(Icons.delete ,
+                    color: whiteBlue),
+                     onPressed: (){}),),
+            ],
           ),
-        ));
+          ),
+        );
   }
 }
