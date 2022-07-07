@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import '../../themes/constants.dart';
 import '../../widgets/custom_bottom_sheet.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_textFormField.dart';
@@ -14,7 +15,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
    //for test 
-    static const _kGooglePlex = CameraPosition(
+    static const _map = CameraPosition(
     target: LatLng(24.6500, 46.7100),
     zoom: 11.5,
   );
@@ -24,10 +25,49 @@ class _HomeState extends State<Home> {
     return SafeArea(
       child: Scaffold(
        //  Container(child: BottomSheetCoustom()),
-        body: GoogleMap(
-        initialCameraPosition: _kGooglePlex,
-      ), 
-      ),
+       // extendBodyBehindAppBar: true,
+       
+        body: Stack(
+          
+           children: [
+             LayoutBuilder(
+              builder: (BuildContext context , BoxConstraints constraints ) {
+                  
+                  return  Container(
+                    decoration: BoxDecoration(
+                      color: white,
+                       borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(40),
+                       topRight: Radius.circular(40))),
+                       child: SizedBox(
+                           
+                         height: constraints.maxHeight/2,
+                         child: GoogleMap(
+                             initialCameraPosition: _map,
+                             mapType: MapType.normal,
+                             
+                             ),
+                             
+                    ),
+                  );
+                  
+              }),
+            
+            BottomSheetCoustom()
+        ],  
+      
+        
+        
+        ),
+          
+          
+
+
+
+        ),
+       
+    
+      
     );
   }
 }
