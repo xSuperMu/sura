@@ -4,6 +4,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../themes/constants.dart';
 import '../../widgets/custom_bottom_sheet.dart';
 import '../../widgets/custom_button.dart';
+import '../../widgets/custom_search_bar.dart';
 import '../../widgets/custom_textFormField.dart';
 
 class Home extends StatefulWidget {
@@ -19,6 +20,8 @@ class _HomeState extends State<Home> {
     target: LatLng(24.6500, 46.7100),
     zoom: 11.5,
   );
+  GoogleMapController? mapController; 
+  String location = "Search Location"; 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -26,7 +29,7 @@ class _HomeState extends State<Home> {
       child: Scaffold(
        //  Container(child: BottomSheetCoustom()),
        // extendBodyBehindAppBar: true,
-       
+    
         body: Stack(
           
            children: [
@@ -46,14 +49,21 @@ class _HomeState extends State<Home> {
                              initialCameraPosition: _map,
                              mapType: MapType.normal,
                              
+                              onMapCreated: (controller) { //method called when map is created
+                            setState(() {
+                           mapController = controller; 
+                            });
+                              },
                              ),
                              
                     ),
                   );
                   
               }),
+              
+            SearchBar(),
             
-            BottomSheetCoustom()
+            BottomSheetCoustom(),
         ],  
       
         
