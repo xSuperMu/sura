@@ -13,10 +13,29 @@ class DataProvider with ChangeNotifier {
     return _locations;
   }
 
-  
-  //when user clic delete button will be deleted 
+  set searchResults(List<Map<String, dynamic>> value) {
+    _searchResults = value;
+    notifyListeners();
+  }
+
+  List<Map<String, dynamic>> get searchResults {
+    return _searchResults;
+  }
+
+  void addLocation(Map<String, dynamic> location) {
+    try {
+      _locations.firstWhere((element) => element['placeId'] == location['placeId']);
+    }
+    on StateError {
+      _locations.add(location);
+      notifyListeners();
+    }
+  }
+//when user clic delete button will be deleted 
   void removeLocation(Map<String, dynamic> location) {
       _locations.removeWhere((element) => element['placeId'] == location['placeId']);
       notifyListeners();
   }
 }
+
+
